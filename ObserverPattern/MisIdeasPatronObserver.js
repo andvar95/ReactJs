@@ -16,15 +16,33 @@ class ChangesDB extends Observable {
 }
 
 
+
 class Window1 {
     notify(event){
         console.log(`${event.db[event.db.length-1]} was added to Window 1`)
+        console.log("New list")
+        event.db.forEach(
+            (persons)=>{
+                console.log(persons)
+            }
+        )
+        console.log("\n")
     }
+  
+    
 }
 
 class Window2 {
     notify(event){
         console.log(`${event.db[event.db.length-1]} was added to Window 2`)
+        console.log("New list")
+        event.db.forEach(
+            (persons)=>{
+                console.log(persons)
+            }
+        )
+        console.log("\n")
+    
     }
 }
 

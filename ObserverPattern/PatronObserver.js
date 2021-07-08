@@ -17,7 +17,7 @@ class Observable {
 
   notifyObservable(event) { //send a message to each observer according to the event.
     this.observers.forEach((observer) => {
-      observer.notify(event);  //It's needed the observer have mthod notify
+      observer.notify(event);  //the oberver must have defined notify method
     });
   }
 }
@@ -25,42 +25,46 @@ class Observable {
 
 class NumberExample extends Observable {  //converting Number example as observable class
   constructor() {
-    super(); //calling the father class to use subscribe, unsubscribe and notiy methods
+    super(); //calling the father class to use subscribe, unsubscribe and notify methods
     this.value = 0;
   }
 
-  /*The increment method execute a action and notify it to subcribers */
+  /*The increment method execute an action and notify it to subcribers */
   increment() {
     this.value++;
-    this.notifyObservable(this);
+    this.notifyObservable(this); //sending notification 
   }
 }
 
-/* suscribd classes, the method notify is executed by  notifyObservable method*/
+/* subscribed classes, the method notify is executed by  notifyObservable method in Observable CLASS */
+
 class NumberExampleSpanish {
   notify(event) {
-    console.log(`El nuevo numero es : ${event.value}`);
+    console.log(`El nuevo numero es : ${event.value}`); //method to show updated information
   }
 }
 
 class NumberExampleEnglish {
   notify(event) {
-    console.log(`The new number is: ${event.value}`);
+    console.log(`The new number is: ${event.value}`);//method to show updated information
   }
 }
-
 /*
+
 let numberexample = new NumberExample()
 
-numberexample.subscribe(new NumberExampleSpanish)
+numberexample.subscribe(new NumberExampleSpanish) //subscribing spanish class
 
-numberexample.subscribe(new NumberExampleEnglish)
+numberexample.subscribe(new NumberExampleEnglish) //subscribing english class
 
-numberexample.increment()
+numberexample.increment()  //chaging the observable class
 numberexample.increment()
 
 
 numberexample.increment()
 numberexample.increment()
 */
+
+
+
 module.exports = Observable

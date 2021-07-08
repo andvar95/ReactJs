@@ -1,0 +1,112 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+.spacer{
+    display:flex;
+    flex:1 0 auto;
+}
+.navbar {
+    display:flex;
+    background-color: #ffff;
+    border-bottom:1px solid rgb(200, 200, 200);
+    list-style:none;
+    position: fixed;
+    width:100%;
+    top:0;
+    z-index: 1;
+}
+.navbar li a {
+    display:block;
+    padding:20px 20px;
+}
+
+
+.navbar li a:hover{
+    background-color: #129ae9;
+    color:white;
+}
+
+.footer{
+    position:fixed;
+    bottom:0;
+    padding:10px;
+    color:white;
+    width:100%;
+    background-color: #129ae9;
+}
+.body{
+    padding-top:5%;
+    padding-bottom:10%;
+}
+
+.main{
+  
+    display:flex;
+    flex-wrap:wrap;
+    padding:15px;
+    justify-content:center;
+}
+
+.main >*{
+    margin:15px;
+ }
+ 
+
+
+.card{
+    border:1px solid black;
+    border-radius:5px;
+ }
+ 
+ .card:hover{
+     transform:scale(1.2);
+ }
+ 
+ .card-text{
+     overflow:auto;
+     text-align:center;
+     display:flex;
+     justify-content:center;
+     flex-wrap:wrap;
+     background-color: white;
+ }
+ img{
+     width:250px;
+     height:400px;
+ }
+
+ .controls{
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+}
+
+.btn{
+    margin:5px;
+    padding:15px;
+    border:1px solid rgb(204, 204, 204);
+    border-radius:5px;
+}
+
+.btn:hover{
+    color:white;
+    background-color: #129ae9;
+}
+
+.UserField{
+
+}
+
+.UserField:hover{
+    background-color:rgb(235, 235, 235) !important;
+    color:black  !important;
+}
+.dropdown-content{
+    
+}
+
+.dropdown-content li a {
+    display:block;
+}
