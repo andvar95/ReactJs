@@ -72,6 +72,11 @@
      flex-wrap:wrap;
      background-color: white;
  }
+
+ .card-text:hover{
+     color:#129ae9;
+     text-decoration: underline;
+ }
  img{
      width:250px;
      height:400px;
@@ -108,5 +113,13 @@
 }
 
 .dropdown-content li a {
+    display:block;
+}
+
+.display-none{
+    display:none;
+}
+
+.display-block{
     display:block;
 }

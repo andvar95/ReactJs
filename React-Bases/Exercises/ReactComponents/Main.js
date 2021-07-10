@@ -1,6 +1,7 @@
 /* ============================API / EVENTS==========================*/
 
 var page = 0;
+var show = false;
 
 const nextFunction = () => {
   getApi(window.page++);
@@ -10,12 +11,22 @@ const prevFunction = () => {
   getApi(window.page--);
 };
 
+const openModal= () =>{
+     window.show = true
+     return(
+       <Modal show={window.show} />
+     )
+
+}
+
 const events = () => {
   let buttonPrev = document.getElementById("prev");
   let buttonNext = document.getElementById("next");
+  let modal = document.getElementById("textModal");
 
   buttonNext.addEventListener("click", nextFunction);
   buttonPrev.addEventListener("click", prevFunction);
+  modal.addEventListener("click",openModal)
 };
 
 const getApi = (pages) => {
@@ -23,7 +34,7 @@ const getApi = (pages) => {
   return fetch("https://rickandmortyapi.com/api/character/?page=" + pages)
     .then((res) => res.json())
     .then((res) => {
-      Draw(res.results);
+      draw(res.results);
       events();
     });
 };
@@ -50,6 +61,17 @@ function Navbar() {
   );
 }
 
+function Modal(props){
+  const classModal = windows.show? 'display-block':'display-none'
+  console.log(classModal)
+  return(
+    <div className={classModal}>
+      <h1>Modal</h1>
+    </div>
+  )
+
+}
+
 function Body(props) {
   console.log(props);
   return (
@@ -72,13 +94,16 @@ function Body(props) {
   );
 }
 
+
+
 function Card(props) {
   return (
     <div className="card">
       <div>
         <img src={props.image}></img>
       </div>
-      <div className="card-text">{props.name}</div>
+      <div id="textModal" className="card-text">{props.name}</div>
+      <Modal />
     </div>
   );
 }
@@ -97,7 +122,7 @@ function Main(props) {
   );
 }
 
-function Draw(data) {
+function draw(data) {
   ReactDOM.render(<Main data={data} />, document.getElementById("root"));
 }
 
