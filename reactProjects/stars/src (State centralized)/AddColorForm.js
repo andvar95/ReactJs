@@ -1,12 +1,11 @@
-import React,{useState} from 'react'
-import {useColors} from "./ColorProvider"; 
+import React,{useRef, useState} from 'react'
 
-export default function AddColorForm(){
-    const {addColor} = useColors()
+
+export default function AddColorForm({onNewColor=(title,color)=>(title,color)}){
 
     //const [title,setTitle] = useState("");
     const [titleProps,resetTitle] = useInput("")
-    const [colorProps,resetColor] = useInput("")
+    const [colorProps,resetColor] = useInput("blue")
 
     //const txtTitle = useRef();
  
@@ -17,7 +16,7 @@ export default function AddColorForm(){
         //txtTitle.current.value = "blue"
         //console.log(title)
         //onNewColor(title);
-        addColor(titleProps.value,colorProps.value);
+        onNewColor(titleProps.value,colorProps.value);
         resetTitle()
         resetColor()
 
